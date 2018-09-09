@@ -1,3 +1,16 @@
-<p>
-  course-detail works!
-</p>
+<div class="container">
+	<h2>Course Details</h2>
+    <h3>Course Name : {{courseDetail?.slug}}</h3>
+
+    <h3>Start date : {{courseDetail?.start_dates[0]}}</h3>
+    <h3> Next dates:</h3>
+    <ul>
+        <li *ngFor="let date of courseDetail?.start_dates | slice:1:2">
+        	{{date}}
+        </li>
+        <li>{{courseDetail?.start_dates[2]}}</li>
+    </ul>
+    <p *ngIf="errorMessage">
+        {{errorMessage|json}}
+    </p>
+</div>
