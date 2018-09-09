@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LocationResolver } from './resolver/location.resolver';
 
 const routes: Routes = [
 	{
@@ -14,7 +15,10 @@ const routes: Routes = [
 		component: CourseListComponent
 	},{
 		path:'courses/:slug',
-		component: CourseDetailComponent
+		component: CourseDetailComponent,
+		resolve:{
+			location: LocationResolver
+		}
 	},
 	{
 		path:'**',

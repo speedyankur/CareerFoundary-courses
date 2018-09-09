@@ -1,7 +1,17 @@
 <div class="container">
 	<h2>Course Details</h2>
     <h3>Course Name : {{courseDetail?.slug}}</h3>
-
+    <div *ngIf="location?.continent_code == 'UK' || location?.continent_code == 'EU'; else dollarPrice">
+        <div *ngIf="location?.continent_code == 'EU' ">
+            <h3>Price:{{courseDetail?.price.EU.total}}</h3>
+        </div>
+        <div *ngIf="location?.continent_code == 'UK' ">
+            <h3>Price:{{courseDetail?.price.UK.total}}</h3>
+        </div>
+    </div>
+    <ng-template #dollarPrice>
+        <h3>Price:{{courseDetail?.price.NA.total}}</h3>
+    </ng-template>
     <h3>Start date : {{courseDetail?.start_dates[0]}}</h3>
     <h3> Next dates:</h3>
     <ul>
