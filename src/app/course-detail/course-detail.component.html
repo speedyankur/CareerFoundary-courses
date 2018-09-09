@@ -10,10 +10,10 @@
         </div>
     </div>
     <ng-template #dollarPrice>
-        <h3>Price:{{courseDetail?.price.NA.total}}</h3>
+        <h3>Price:<span class="price">{{courseDetail?.price.NA.total}}</span></h3>
     </ng-template>
     <h3>Start date : {{courseDetail?.start_dates[0]}}</h3>
-    <h3> Next dates:</h3>
+    <h3>Next dates:</h3>
     <ul>
         <li *ngFor="let date of courseDetail?.start_dates | slice:1:2">
         	{{date}}
