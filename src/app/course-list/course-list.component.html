@@ -1,3 +1,12 @@
-<p>
-  course-list works!
-</p>
+<div class="container">
+    <h2>List of Available Courses</h2>
+    <ul *ngFor="let course of courses">
+        <li >
+        	<a routerLink="/courses/{{course.slug}}"> {{course.title}}</a>
+        	<span>, by {{course.author}}</span>
+        </li>
+    </ul>
+    <p class="error">
+        {{errorMessage|json}}
+    </p>
+</div>
